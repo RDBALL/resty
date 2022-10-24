@@ -17,14 +17,15 @@ body {
   }
 
   footer {
-    background: darken($backgroundColor, 50);
+    background: darken($backgroundColor, 90);
     border-top: 1px solid #eee;
+    color: white;
     padding: 1em 3em;
     margin: 0;
   }
 
   header {
-    background: darken($backgroundColor, 75);
+    background: darken($backgroundColor, 90);
     border-bottom: 1px solid #eee;
     color: #eee;
     padding: 0;
