@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      &copy; 2018
+      &copy; https://github.com/RDBALL/resty
     </footer>
   )
 }
