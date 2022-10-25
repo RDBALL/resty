@@ -3,11 +3,11 @@ import './form.scss';
 
 function Form({ handleApiCall }) {
 
-  let [restMethod, selectMethod] = useState('get');
+  let [restMethod, selectedMethod] = useState('get');
 
   const handleMethodSelect = (e) => {
     e.preventDefault();
-    selectMethod(e.target.id);
+    selectedMethod(e.target.id);
   };
 
   const handleSubmit = e => {
@@ -44,6 +44,9 @@ function Form({ handleApiCall }) {
         <label className="methods">
           {methodButtons}
         </label>
+        {restMethod === 'POST' || restMethod === 'PUT' ?
+          <label className='reqJSON'><textarea /></label> :
+          null}
       </form>
     </>
   );

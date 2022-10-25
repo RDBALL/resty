@@ -1,9 +1,9 @@
 import './style.scss';
 
-function Results(props){
+function Results({data}){
     return (
       <section>
-        <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+        <pre>{data ? JSON.stringify(data, undefined, 2) : null}</pre>
       </section>
     );
   }
