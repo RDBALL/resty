@@ -1,4 +1,4 @@
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       &copy; https://github.com/RDBALL/resty
