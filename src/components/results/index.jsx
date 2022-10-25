@@ -4,7 +4,7 @@ import 'react-json-pretty/themes/1337.css';
 
 const Results = ({ data }) => {
   return (
-    <section>
+    <section data-testid='returnResults'>
       {data ?
         (<>
           <span>Results
