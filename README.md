@@ -64,6 +64,9 @@ Refactor the RESTy application as follows:
 * Assert that upon submitting the form will result in data being rendered in the output area
 * Install the GitHub action that will auto-run your tests on all check-ins
 
+![Render Results Test](./public/assets/lab27Test.jpg)
+
+
 ```js
 describe('Testing form submission results', () => {
   it('Ensuring that data is rendered when the "go" button is pressed on the form', () => {
