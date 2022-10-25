@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './form.scss';
 
-function Form({ handleApiCall }) {
+const Form = ({ handleApiCall }) => {
 
   let [restMethod, selectedMethod] = useState('get');
 
