@@ -48,7 +48,6 @@ Refactor the RESTy application as follows:
 
 ---
 
-
 ## Phase 2 - Requirements
 
 * In phase 2, we will be receiving user input in preparation of connecting to live APIs, using the useState() hook in our functional components. In order to properly manage state with the useState hook, we will now convert App.js to a functional component.
@@ -65,7 +64,6 @@ Refactor the RESTy application as follows:
 * Install the GitHub action that will auto-run your tests on all check-ins
 
 ![Render Results Test](./public/assets/lab27Test.jpg)
-
 
 ```js
 describe('Testing form submission results', () => {
