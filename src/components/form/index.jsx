@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import './form.scss';
 
-function Form(props) {
+function Form({ handleApiCall }) {
+
+  let [restMethod, selectMethod] = useState('get');
+
+  const handleMethodSelect = (e) => {
+    e.preventDefault();
+    selectMethod(e.target.id);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -8,8 +16,23 @@ function Form(props) {
       method: 'GET',
       url: 'https://pokeapi.co/api/v2/pokemon',
     };
-    props.handleApiCall(formData);
-  }
+    handleApiCall(formData);
+  };
+  const methodArr = ['GET', 'POST', 'PUT', 'DELETE'];
+
+  const methodButtons = methodArr.map((methodName) => {
+    let className = methodName === restMethod ? 'active' : 'inactive';
+    return (
+      <span
+        id={methodName}
+        onClick={handleMethodSelect}
+        key={methodName}
+        className={className}>
+          {methodName}
+        </span>
+    );
+  });
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -19,14 +42,11 @@ function Form(props) {
           <button type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span id="get">GET</span>
-          <span id="post">POST</span>
-          <span id="put">PUT</span>
-          <span id="delete">DELETE</span>
+          {methodButtons}
         </label>
       </form>
     </>
   );
-}
+};
 
 export default Form;
