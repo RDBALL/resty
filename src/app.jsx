@@ -11,7 +11,6 @@ const App = () => {
   let [data, setData] = useState(null);
   let [requestParams, setRequestParams] = useState({});
 
-
   useEffect(() => {
     if(requestParams?.method && requestParams?.url){
       handleApiCall(requestParams)

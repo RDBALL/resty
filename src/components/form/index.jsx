@@ -13,11 +13,7 @@ const Form = ({ handleApiCall }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // const formData = {
-    //   method: 'GET',
-    //   url: 'https://pokeapi.co/api/v2/pokemon',
-    // };
-    handleApiCall({method, url});
+    handleApiCall({ method, url });
   };
   const methodArr = ['GET', 'POST', 'PUT', 'DELETE'];
 
@@ -29,8 +25,8 @@ const Form = ({ handleApiCall }) => {
         onClick={handleMethodSelect}
         key={methodName}
         className={className}>
-          {methodName}
-        </span>
+        {methodName}
+      </span>
     );
   });
 
@@ -40,7 +36,6 @@ const Form = ({ handleApiCall }) => {
         <label >
           <span>URL: </span>
           <input onChange={(e) => setUrl(e.target.value)} name='url' type='text' />
-          {/* <input name='url' type='text' /> */}
           <button type="submit" data-testid='formSubmitButton'>GO!</button>
         </label>
         <label className="methods">
