@@ -3,22 +3,26 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const App = () => {
 
   let [data, setData] = useState(null);
   let [requestParams, setRequestParams] = useState({});
 
-  const handleApiCall = (requestParams) => {
-    // mock output
-    const callApiData = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-      ],
-    };
+  useEffect(() => {
+    if(requestParams?.method && requestParams?.url){
+      handleApiCall(requestParams)
+    }
+  }, [requestParams]);
+
+  const handleApiCall = async (requestParams) => {
+    const callApiData = await axios({
+      method: requestParams.method,
+      url: requestParams.url,
+      data: requestParams?.data
+    })
     setData(callApiData);
     setRequestParams(requestParams);
   }
