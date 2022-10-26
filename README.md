@@ -8,6 +8,8 @@
 
 ---
 
+### Phase 3 live on [codesandbox.io](https://codesandbox.io/p/github/RDBALL/resty/lab28?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cl9n5pr7d0000lscm7ext4sft%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cl9q82vum00j8356h963x75u8%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cl9q82qwm00h7356h6hjwr7z4%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
+
 ### Phase 2 live on [codesandbox.io](https://codesandbox.io/p/github/RDBALL/resty/lab27?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cl9n5pr7d0000lscm7ext4sft%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cl9ot75vl00mw356i5nn1k6fj%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cl9ot726300kv356iwuny1k4n%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
 
 ### Phase 1 live on [codesandbox.io](https://codesandbox.io/p/github/RDBALL/resty/lab26?selection=%5B%7B%22endColumn%22%3A1%2C%22endLineNumber%22%3A12%2C%22startColumn%22%3A1%2C%22startLineNumber%22%3A12%7D%5D&file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cl9n5pr7d0000lscm7ext4sft%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3001%252C%2522key%2522%253A%2522cl9nfhe6g00el376hmikh4kx6%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cl9n5vdru00tc376h345pqhch%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
@@ -15,7 +17,7 @@
 ---
 Documentation:
 
-![UML lab11](./public/assets/lab27UML.jpg)
+![UML lab11](./public/assets/lab28UML.jpg)
 
 ---
 
@@ -80,7 +82,29 @@ describe('Testing form submission results', () => {
 
 ---
 
-## Phase 3 -
+## Phase 3 - Requirements
+
+* In phase 3, we will be connecting RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests
+
+* The following user stories detail the major functionality for this phase of the project.
+
+  * As a user, I want to enter the URL to an API and issue a GET request so that I can retrieve it’s data
+  * As a user, I want to see the results returned from an API request in my browser in a readable format
+
+* Application Flow:
+
+  * User enters an API URL
+  * Chooses a REST Method
+  * Clicks the “Go” button
+  * Application fetches data from the URL given, with the method specified
+  * Displays the response headers and results separately
+  * Both headers and results should be “pretty printed” JSON
+
+---
+
+### Application 'get' request from API URL
+
+> ![Application get from external API](./public/assets/restyApi.jpg)
 
 ---
 
@@ -88,7 +112,7 @@ Dependencies
 
 ```JSON
 {
-    "@testing-library/jest-dom": "^5.16.5",
+  "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
@@ -111,4 +135,5 @@ Setup
 
 Previous UMLs
 
+![UML lab11](./public/assets/lab27UML.jpg)
 ![UML lab11](./public/assets/lab26UML.jpg)
