@@ -3,25 +3,26 @@ import './form.scss';
 
 const Form = ({ handleApiCall }) => {
 
-  let [restMethod, selectedMethod] = useState('get');
+  const [method, setMethod] = useState('');
+  const [url, setUrl] = useState('');
 
   const handleMethodSelect = (e) => {
     e.preventDefault();
-    selectedMethod(e.target.id);
+    setMethod(e.target.id);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const formData = {
-      method: 'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    handleApiCall(formData);
+    // const formData = {
+    //   method: 'GET',
+    //   url: 'https://pokeapi.co/api/v2/pokemon',
+    // };
+    handleApiCall({method, url});
   };
   const methodArr = ['GET', 'POST', 'PUT', 'DELETE'];
 
   const methodButtons = methodArr.map((methodName) => {
-    let className = methodName === restMethod ? 'active' : 'inactive';
+    let className = methodName === method ? 'active' : 'inactive';
     return (
       <span
         id={methodName}
@@ -38,13 +39,14 @@ const Form = ({ handleApiCall }) => {
       <form onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
-          <input name='url' type='text' />
+          <input onChange={(e) => setUrl(e.target.value)} name='url' type='text' />
+          {/* <input name='url' type='text' /> */}
           <button type="submit" data-testid='formSubmitButton'>GO!</button>
         </label>
         <label className="methods">
           {methodButtons}
         </label>
-        {restMethod === 'POST' || restMethod === 'PUT' ?
+        {method === 'POST' || method === 'PUT' ?
           <label className='reqJSON'><textarea /></label> :
           null}
       </form>
