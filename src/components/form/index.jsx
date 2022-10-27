@@ -43,7 +43,7 @@ const Form = ({ handleApiCall }) => {
           {methodButtons}
         </label>
         {method === 'POST' || method === 'PUT' ?
-          <label className='reqJSON'><textarea onChange={(e) => setData(e.target.value)} /></label> :
+          <label className='reqJSON'><textarea  name='data' onChange={(e) => setData(e.target.value)} /></label> :
           null}
       </form>
     </>

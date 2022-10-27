@@ -21,7 +21,7 @@ const App = () => {
     const callApiData = await axios({
       method: requestParams.method,
       url: requestParams.url,
-      data: requestParams?.data
+      data: requestParams.data
     })
     setData(callApiData);
     setRequestParams(requestParams);
