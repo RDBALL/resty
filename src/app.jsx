@@ -3,6 +3,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import History from './components/history';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -34,6 +35,7 @@ const App = () => {
       <div>URL: {requestParams.url}</div>
       <Form handleApiCall={handleApiCall} />
       <Results data={data} />
+      <History />
       <Footer />
     </>
   );
