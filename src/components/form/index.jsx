@@ -5,6 +5,7 @@ const Form = ({ handleApiCall }) => {
 
   const [method, setMethod] = useState('');
   const [url, setUrl] = useState('');
+  const [data, setData] = useState('');
 
   const handleMethodSelect = (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ const Form = ({ handleApiCall }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    handleApiCall({ method, url });
+    handleApiCall({ method, url, data });
   };
   const methodArr = ['GET', 'POST', 'PUT', 'DELETE'];
 
@@ -42,7 +43,7 @@ const Form = ({ handleApiCall }) => {
           {methodButtons}
         </label>
         {method === 'POST' || method === 'PUT' ?
-          <label className='reqJSON'><textarea /></label> :
+          <label className='reqJSON'><textarea onChange={(e) => setData(e.target.value)} /></label> :
           null}
       </form>
     </>
