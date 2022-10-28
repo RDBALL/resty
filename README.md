@@ -8,6 +8,8 @@
 
 ---
 
+### Phase 4 live on [codesandbox.io](https://codesandbox.io/p/github/RDBALL/resty/lab29?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cl9n5pr7d0000lscm7ext4sft%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522key%2522%253A%2522cl9rwdfcv00i2356hjuvk1p8v%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cl9rwdh3t00n6356hguxvme2n%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
+
 ### Phase 3 live on [codesandbox.io](https://codesandbox.io/p/github/RDBALL/resty/lab28?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cl9n5pr7d0000lscm7ext4sft%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cl9q82vum00j8356h963x75u8%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cl9q82qwm00h7356h6hjwr7z4%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
 
 ### Phase 2 live on [codesandbox.io](https://codesandbox.io/p/github/RDBALL/resty/lab27?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522cl9n5pr7d0000lscm7ext4sft%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cl9ot75vl00mw356i5nn1k6fj%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522cl9ot726300kv356iwuny1k4n%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
@@ -17,7 +19,7 @@
 ---
 Documentation:
 
-![UML lab11](./public/assets/lab28UML.jpg)
+![UML lab11](./public/assets/lab29UML.jpg)
 
 ---
 
@@ -108,15 +110,32 @@ describe('Testing form submission results', () => {
 
 ---
 
+## Phase 4 - Requirements
+
+* In phase 4, we will be tracking every API call and storing it in history
+
+* The following user stories detail the major functionality for this phase of the project.
+
+  * As a user, I want to see a list of my previous API calls, so that I can see the results again, quickly
+
+### API request history 
+
+> ![Application showing request history](./public/assets/requestHistory.jpg)
+
 Dependencies
 
 ```JSON
 {
-  "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "msw": "^0.47.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-json-pretty": "^2.2.0",
     "react-jsonschema-form": "^1.8.1",
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
@@ -135,5 +154,6 @@ Setup
 
 Previous UMLs
 
+  ![UML lab11](./public/assets/lab28UML.jpg)
 ![UML lab11](./public/assets/lab27UML.jpg)
 ![UML lab11](./public/assets/lab26UML.jpg)
