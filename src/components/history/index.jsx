@@ -6,7 +6,7 @@ function History({ apiRequestHistory }) {
   return (
     <section className="history-display">
       <span>Request History</span>
-      <JSONPretty data={apiRequestHistory} collapsed='true' name="API Request history"/>
+      <JSONPretty data={apiRequestHistory} collapsed='true' name="API Request history" />
     </section>
   )
 }

@@ -16,10 +16,6 @@ const Form = ({ handleApiCall }) => {
 
   const setFormData = (payload) => dispatch({propName: 'formData', payload});
 
-  // const [method, setMethod] = useState('');
-  // const [url, setUrl] = useState('');
-  // const [data, setData] = useState('');
-
   const handleMethodSelect = (e) => {
     e.preventDefault();
     setFormData({
@@ -27,11 +23,6 @@ const Form = ({ handleApiCall }) => {
       method: e.target.id,
     });
   }
-
-  // const handleMethodSelect = (e) => {
-  //   e.preventDefault();
-  //   setMethod(e.target.id);
-  // };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -46,11 +37,6 @@ const Form = ({ handleApiCall }) => {
     e.preventDefault();
     handleApiCall(formData);
   }
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   handleApiCall({ method, url, data });
-  // };
 
   const methodArr = ['GET', 'POST', 'PUT', 'DELETE'];
 
@@ -84,22 +70,6 @@ const Form = ({ handleApiCall }) => {
       </form>
     </>
   );
-  //   <>
-  //     <form onSubmit={handleSubmit}>
-  //       <label >
-  //         <span>URL: </span>
-  //         <input onChange={(e) => setUrl(e.target.value)} name='url' type='text' />
-  //         <button type="submit" data-testid='formSubmitButton'>GO!</button>
-  //       </label>
-  //       <label className="methods">
-  //         {methodButtons}
-  //       </label>
-  //       {method === 'POST' || method === 'PUT' ?
-  //         <label className='reqJSON'><textarea  name='data' onChange={(e) => setData(e.target.value)} /></label> :
-  //         null}
-  //     </form>
-  //   </>
-  // );
 };
 
 export default Form;

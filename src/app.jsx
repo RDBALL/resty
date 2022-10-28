@@ -10,30 +10,28 @@ import axios from 'axios';
 
 const initialState = {
   data: null,
-  requestParams: null
+  requestParams: null,
+  apiRequestHistory: []
 }
 
 const App = () => {
-  // ---------------> Refactoring to useReducer
+
 
   let [state, dispatch] = useReducer(propReducer, initialState);
-  const { requestParams, data } = state;
+  
+  const { requestParams, data, apiRequestHistory } = state;
+  
   const updateData = (payload) => dispatch({ propName: 'data', payload });
+  
+  const updateHistory = (payload) => {
+    dispatch({propName: 'apiRequestHistory', payload: [...apiRequestHistory, payload]})
+  }
+
   const updateParams = (payload) => {
     dispatch({ propName: 'requestParams', payload })
     if (payload?.method && payload?.url) {   
       handleApiCall(payload)
   }}
-
-
-  // let [data, setData] = useState(null);
-  // let [requestParams, setRequestParams] = useState({});
-
-  // useEffect(() => {
-  //   if(requestParams?.method && requestParams?.url){
-  //     handleApiCall(requestParams)
-  //   }
-  // });
 
   async function handleApiCall (params) {
     const callApiData = await axios({
@@ -42,16 +40,8 @@ const App = () => {
       data: params?.data
     })
     updateData(callApiData.data);
+    updateHistory({data: callApiData.data, params})
   }
-  // const handleApiCall = async (requestParams) => {
-  //   const callApiData = await axios({
-  //     method: requestParams.method,
-  //     url: requestParams.url,
-  //     data: requestParams.data
-  //   })
-  //   setData(callApiData);
-  //   setRequestParams(requestParams);
-  // }
 
   return (
     <>
@@ -60,21 +50,10 @@ const App = () => {
       <div>URL: {requestParams?.url}</div>
       <Form handleApiCall={updateParams} />
       <Results data={data} />
-      <History />
+      <History apiRequestHistory={apiRequestHistory}/>
       <Footer />
     </>
   );
 }
-//     <>
-//       <Header />
-//       <div>Request Method: {requestParams.method}</div>
-//       <div>URL: {requestParams.url}</div>
-//       <Form handleApiCall={handleApiCall} />
-//       <Results data={data} />
-//       <History />
-//       <Footer />
-//     </>
-//   );
-// }
 
 export default App;
