@@ -1,25 +1,61 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
+import  propReducer from '../reducer';
 import './form.scss';
+
+const initialState = {
+  formData: {
+    method: 'get',
+    url: '',
+  }
+}
 
 const Form = ({ handleApiCall }) => {
 
-  const [method, setMethod] = useState('');
-  const [url, setUrl] = useState('');
-  const [data, setData] = useState('');
+  let [state, dispatch] = useReducer(propReducer, initialState);
+  const { formData } = state;
+
+  const setFormData = (payload) => dispatch({propName: 'formData', payload});
+
+  // const [method, setMethod] = useState('');
+  // const [url, setUrl] = useState('');
+  // const [data, setData] = useState('');
 
   const handleMethodSelect = (e) => {
     e.preventDefault();
-    setMethod(e.target.id);
-  };
+    setFormData({
+      ...formData,
+      method: e.target.id,
+    });
+  }
 
-  const handleSubmit = e => {
+  // const handleMethodSelect = (e) => {
+  //   e.preventDefault();
+  //   setMethod(e.target.id);
+  // };
+
+  const handleChange = (e) => {
     e.preventDefault();
-    handleApiCall({ method, url, data });
-  };
+    setFormData({
+      ...formData,
+      url: e.target.value,
+      data: e.target?.data?.value
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleApiCall(formData);
+  }
+
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   handleApiCall({ method, url, data });
+  // };
+
   const methodArr = ['GET', 'POST', 'PUT', 'DELETE'];
 
   const methodButtons = methodArr.map((methodName) => {
-    let className = methodName === method ? 'active' : 'inactive';
+    let className = methodName === formData.method ? 'active' : 'inactive';
     return (
       <span
         id={methodName}
@@ -36,18 +72,34 @@ const Form = ({ handleApiCall }) => {
       <form onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
-          <input onChange={(e) => setUrl(e.target.value)} name='url' type='text' />
+          <input onChange={handleChange} name='url' type='text' value={formData.url} />
           <button type="submit" data-testid='formSubmitButton'>GO!</button>
         </label>
         <label className="methods">
           {methodButtons}
         </label>
-        {method === 'POST' || method === 'PUT' ?
-          <label className='reqJSON'><textarea  name='data' onChange={(e) => setData(e.target.value)} /></label> :
+        {formData.method === 'POST' || formData.method === 'PUT' ?
+          <label className='reqJSON'><textarea  name='data' /></label> :
           null}
       </form>
     </>
   );
+  //   <>
+  //     <form onSubmit={handleSubmit}>
+  //       <label >
+  //         <span>URL: </span>
+  //         <input onChange={(e) => setUrl(e.target.value)} name='url' type='text' />
+  //         <button type="submit" data-testid='formSubmitButton'>GO!</button>
+  //       </label>
+  //       <label className="methods">
+  //         {methodButtons}
+  //       </label>
+  //       {method === 'POST' || method === 'PUT' ?
+  //         <label className='reqJSON'><textarea  name='data' onChange={(e) => setData(e.target.value)} /></label> :
+  //         null}
+  //     </form>
+  //   </>
+  // );
 };
 
 export default Form;

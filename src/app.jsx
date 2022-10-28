@@ -5,7 +5,7 @@ import Form from './components/form';
 import Results from './components/results';
 import History from './components/history';
 import { useReducer } from 'react';
-import propReducer from './components/reducer/propReducer';
+import propReducer from './components/reducer';
 import axios from 'axios';
 
 const initialState = {

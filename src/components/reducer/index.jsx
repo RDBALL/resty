@@ -6,3 +6,4 @@ const propReducer = (state, action) => {
 }
 
 export default propReducer;
+
