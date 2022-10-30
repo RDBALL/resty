@@ -58,7 +58,7 @@ const Form = ({ handleApiCall }) => {
       <form onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
-          <input onChange={handleChange} name='url' type='text' value={formData.url} />
+          <input onChange={handleChange} name='url' type='text' value={formData.url} data-testid='form-url'/>
           <button type="submit" data-testid='formSubmitButton'>GO!</button>
         </label>
         <label className="methods">
