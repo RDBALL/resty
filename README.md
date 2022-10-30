@@ -118,9 +118,17 @@ describe('Testing form submission results', () => {
 
   * As a user, I want to see a list of my previous API calls, so that I can see the results again, quickly
 
-### API request history 
+### API request history
 
-> ![Application showing request history](./public/assets/requestHistory.jpg)
+![Application showing request history](./public/assets/requestHistory.jpg)
+
+### Testing
+
+* Testing was done using the Mock Service Worker package `msw`. This package allows you to mock a REST API for development, unit and E2E testing in Create React App project.
+
+![npm test result](./public/assets/renderResults.jpg)
+
+> **Accredidation:** Testing suite built upon class msw recording
 
 Dependencies
 

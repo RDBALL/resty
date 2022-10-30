@@ -8,7 +8,7 @@ const Results = ({ data }) => {
       {data ?
         (<>
           <span>Results
-          <JSONPretty data={data}/>
+          <JSONPretty data={data} />
           </span>
         </>) :
         (<span>Awaiting API Request</span>)
